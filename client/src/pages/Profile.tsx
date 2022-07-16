@@ -10,7 +10,7 @@ import ProgressBar from '../components/ProgressBar'
 import { flexbox } from '@mui/system'
 
 const Profile = () => {
-  let testData = { bgcolor: '#6a1b9a', completed: 60 }
+  let testData = { bgcolor: '#B38ccb', completed: 60 }
 
   return (
     <Container>
@@ -53,6 +53,7 @@ const Profile = () => {
                   height: '450px',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  paddingTop: '0px',
                 }}
               >
                 <Box sx={{ justifyContent: 'center', display: 'flex', flexDirection: 'row', gap: '30px' }}>
