@@ -10,6 +10,8 @@ import Landing from './pages/Landing'
 import Header from './layout/Header'
 import Footer from './layout/Footer'
 
+import { CssBaseline } from '@mui/material'
+
 const light = createTheme({
     palette: {
       mode: 'light',
@@ -45,13 +47,13 @@ const App = () => {
     <ThemeProvider theme={darkMode ? dark : light}>
       <CssBaseline enableColorScheme />
       <Header />
-        <Router>
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/" element={<Landing />} />
-          </Routes>
-        </Router>
+      <Router>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/" element={<Landing />} />
+        </Routes>
+      </Router>
       <Footer />
     </ThemeProvider>
   )
