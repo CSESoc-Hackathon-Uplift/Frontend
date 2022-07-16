@@ -17,19 +17,25 @@ const Profile = () => {
       <Grid container spacing={2} paddingY={2} sx={{ maxWidth: 'lg' }}>
         <Grid item xs={12}>
           <Typography variant="h4" sx={{ paddingBottom: '50px' }}>
-            Your Profile
+            <strong>Your Profile</strong>
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', gap: '150px' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <CardMedia>
                 <LazyLoadImage src={profile} alt={'profile pic'} height="200px" width="200px" effect={'opacity'} style={{ borderRadius: '50%', aspectRatio: '394/267', objectFit: 'cover' }} />
               </CardMedia>
-              <Typography variant="h5">Username</Typography>
+              <Typography variant="h5">
+                <strong>Username</strong>
+              </Typography>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-              <Typography variant="h5">Your Overall Sentiment Analysis:</Typography>
+              <Typography variant="h5">
+                <strong>Your Overall Sentiment Analysis:</strong>
+              </Typography>
               <ProgressBar key={'something'} bgcolor={testData.bgcolor} completed={testData.completed} />
-              <Typography variant="h5">Your Top Categories:</Typography>
+              <Typography variant="h5">
+                <strong>Your Top Categories:</strong>
+              </Typography>
               <Box>
                 <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
                   (news source)
@@ -41,9 +47,13 @@ const Profile = () => {
                   (news source)
                 </Button>
               </Box>
-              <Typography variant="h5">Your History:</Typography>
+              <Typography variant="h5">
+                <strong>Your History:</strong>
+              </Typography>
               <Table />
-              <Typography variant="h5">Your Statistics:</Typography>
+              <Typography variant="h5">
+                <strong>Your Statistics:</strong>
+              </Typography>
               <Card
                 sx={{
                   display: 'flex',

@@ -7,6 +7,7 @@ import stays from '../assets/stays.json'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { ThemeContext } from '@emotion/react'
+import line1 from '../assets/Line1.png'
 
 const Home = (clickCount, setClickCount) => {
   const [location, setLocation] = useState<null | String>(null)
@@ -19,7 +20,7 @@ const Home = (clickCount, setClickCount) => {
       <Grid container spacing={2} paddingY={2} sx={{ maxWidth: 'lg' }}>
         <Grid item xs={12}>
           <Box display={'flex'} justifyContent={'space-between'} alignItems={'flex-end'}>
-            <Typography variant="h5" component="h2" sx={{ fontWeight: 'bold' }}>
+            <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold' }}>
               Newsfeed
             </Typography>
           </Box>
@@ -94,7 +95,7 @@ const Home = (clickCount, setClickCount) => {
     </Container>
   )
 
-  return <div>{newsList}</div>
+  return <div style={{ backgroundImage: `url('${line1}')`, backgroundPosition: '-450px -100px', backgroundRepeat: 'repeat-y', backgroundSize: 'auto' }}>{newsList}</div>
 }
 
 export default Home
