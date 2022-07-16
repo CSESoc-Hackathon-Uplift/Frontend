@@ -1,24 +1,129 @@
 import React from 'react'
 
-import { Box, Grid, CardMedia, Container, LinearProgress, Typography } from '@mui/material'
+import cat1 from '../assets/download.jpg'
+
+import Table from '../components/Table'
+import { Button, Card, Box, Grid, CardMedia, Container, Paper, Typography } from '@mui/material'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import profile from '../assets/profile_pic.jpg'
-import { styled } from '@mui/material/styles'
+import ProgressBar from '../components/ProgressBar'
+import { flexbox } from '@mui/system'
 
 const Profile = () => {
+  let testData = { bgcolor: '#6a1b9a', completed: 60 }
+
   return (
     <Container>
       <Grid container spacing={2} paddingY={2} sx={{ maxWidth: 'lg' }}>
         <Grid item xs={12}>
-          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '80px' }}>
+          <Typography variant="h4" sx={{ paddingBottom: '50px' }}>
+            Your Profile
+          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '150px' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <CardMedia>
-                <LazyLoadImage src={profile} alt={'profile pic'} height="200px" width="200px" effect={'opacity'} style={{ borderRadius: '15px', aspectRatio: '394/267', objectFit: 'cover' }} />
+                <LazyLoadImage src={profile} alt={'profile pic'} height="200px" width="200px" effect={'opacity'} style={{ borderRadius: '50%', aspectRatio: '394/267', objectFit: 'cover' }} />
               </CardMedia>
               <Typography variant="h5">Username</Typography>
-              <Box></Box>
             </Box>
-            <LinearProgress />
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+              <Typography variant="h5">Your Overall Sentiment Analysis:</Typography>
+              <ProgressBar key={'something'} bgcolor={testData.bgcolor} completed={testData.completed} />
+              <Typography variant="h5">Your Top Categories:</Typography>
+              <Box>
+                <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
+                  (news source)
+                </Button>
+                <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
+                  (news source)
+                </Button>
+                <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
+                  (news source)
+                </Button>
+              </Box>
+              <Typography variant="h5">Your History:</Typography>
+              <Table />
+              <Typography variant="h5">Your Statistics:</Typography>
+              <Card
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <Box sx={{ justifyContent: 'center', display: 'flex', flexDirection: 'row', gap: '30px' }}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      borderRadius: '15px',
+                      padding: 3,
+                      boxShadow: 10,
+                      background: 'unset',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Typography variant="h3">Number</Typography>
+                    <p>Average Score</p>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      borderRadius: '15px',
+                      padding: 3,
+                      boxShadow: 10,
+                      background: 'unset',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Typography variant="h3">Number</Typography>
+                    <p>Bias Ratio</p>
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    gap: '30px',
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      borderRadius: '15px',
+                      padding: 3,
+                      boxShadow: 10,
+                      background: 'unset',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Typography variant="h3">Number</Typography>
+                    <p>Most Common Author</p>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      borderRadius: '15px',
+                      padding: 3,
+                      boxShadow: 10,
+                      background: 'unset',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Typography variant="h3">Number</Typography>
+                    <p>Most Common Source</p>
+                  </Box>
+                </Box>
+              </Card>
+            </Box>
           </Box>
         </Grid>
       </Grid>
