@@ -95,7 +95,7 @@ const Home = (clickCount, setClickCount) => {
     </Container>
   )
 
-  return <div style={{ backgroundImage: `url('${line1}')`, backgroundPosition: '-450px -100px', backgroundRepeat: 'repeat-y', backgroundSize: 'auto' }}>{newsList}</div>
+  return <div>{newsList}</div>
 }
 
 export default Home
