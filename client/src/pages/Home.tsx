@@ -2,6 +2,9 @@ import { useContext, useState } from 'react'
 
 import { Box, Button, Card, CardContent, CardMedia, Container, CssBaseline, Grid, Stack, Typography } from '@mui/material'
 import { StarRounded } from '@mui/icons-material'
+import IconButton from '@mui/material/IconButton'
+import SearchIcon from '@mui/icons-material/Search'
+import TextField from '@mui/material/TextField'
 
 import stays from '../assets/stays.json'
 
@@ -13,18 +16,35 @@ const Home = (clickCount, setClickCount) => {
   const [location, setLocation] = useState<null | String>(null)
   const [guests, setGuests] = useState<number>(0)
 
+  const [searchQuery, setSearchQuery] = useState('')
+
   const filteredStays = stays.filter((stay) => (location === null || stay.city + ', ' + stay.country === location) && stay.maxGuests >= guests)
+
+  const SearchBar = ({ searchQuery, setSearchQuery }) => (
+    <form>
+      <TextField
+        id="search-bar"
+        className="text"
+        onInput={(e) => {
+          console.log(searchQuery)
+          setSearchQuery((e.target as HTMLInputElement).value)
+          console.log(searchQuery)
+        }}
+        label="Search for an article"
+        variant="outlined"
+        placeholder="Search..."
+        value={searchQuery}
+        size="small"
+      />
+      <IconButton type="submit" aria-label="search">
+        <SearchIcon style={{ fill: 'blue' }} />
+      </IconButton>
+    </form>
+  )
 
   const newsList = (
     <Container>
       <Grid container spacing={2} paddingY={2} sx={{ maxWidth: 'lg' }}>
-        <Grid item xs={12}>
-          <Box display={'flex'} justifyContent={'space-between'} alignItems={'flex-end'}>
-            <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold' }}>
-              Newsfeed
-            </Typography>
-          </Box>
-        </Grid>
         {filteredStays.map((stay) => {
           return (
             <Grid item xs={12} sm={12} lg={12}>
@@ -108,7 +128,23 @@ const Home = (clickCount, setClickCount) => {
     </Container>
   )
 
-  return <div>{newsList}</div>
+  return (
+    <div>
+      <Container>
+        <Grid container spacing={2} paddingY={2} sx={{ maxWidth: 'lg' }}>
+          <Grid item xs={12}>
+            <Box display={'flex'} justifyContent={'space-between'} alignItems={'flex-end'}>
+              <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold' }}>
+                Newsfeed
+              </Typography>
+              <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+      {newsList}
+    </div>
+  )
 }
 
 export default Home
