@@ -48,6 +48,9 @@ const Profile = () => {
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
+                  border: '0px',
+                  boxShadow: 0,
+                  height: '450px',
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}
@@ -84,6 +87,7 @@ const Profile = () => {
                     <p>Bias Ratio</p>
                   </Box>
                 </Box>
+                <br></br>
                 <Box
                   sx={{
                     display: 'flex',
