@@ -7,7 +7,6 @@ import stays from '../assets/stays.json'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { ThemeContext } from '@emotion/react'
-import line1 from '../assets/Line1.png'
 
 const Home = (clickCount, setClickCount) => {
   const [location, setLocation] = useState<null | String>(null)
@@ -50,7 +49,19 @@ const Home = (clickCount, setClickCount) => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </Typography>
                   <Box display={'flex'} flexDirection={'row'}>
-                    <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
+                    <Button
+                      variant="outlined"
+                      size={'small'}
+                      sx={{
+                        fontSize: '0.7em',
+                        borderStyle: 'none',
+                        borderRadius: '20px',
+                        lineHeight: 1.3,
+                        textTransform: 'uppercase',
+                        fontWeight: 'bold',
+                        marginRight: '1em',
+                      }}
+                    >
                       (news source)
                     </Button>
                     <Typography>(author's name)</Typography>
