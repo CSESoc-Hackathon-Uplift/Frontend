@@ -8,6 +8,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import profile from '../assets/profile_pic.jpg'
 import ProgressBar from '../components/ProgressBar'
 import { flexbox } from '@mui/system'
+import './cardAnimation.css'
 
 const Profile = () => {
   let testData = { bgcolor: '#B38ccb', completed: 60 }
@@ -67,7 +68,8 @@ const Profile = () => {
                 }}
               >
                 <Box sx={{ justifyContent: 'center', display: 'flex', flexDirection: 'row', gap: '30px' }}>
-                  <Box
+                  <Card
+                    className="newsCard"
                     sx={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -81,8 +83,9 @@ const Profile = () => {
                   >
                     <Typography variant="h3">Number</Typography>
                     <p>Average Score</p>
-                  </Box>
-                  <Box
+                  </Card>
+                  <Card
+                    className="newsCard"
                     sx={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -96,7 +99,7 @@ const Profile = () => {
                   >
                     <Typography variant="h3">Number</Typography>
                     <p>Bias Ratio</p>
-                  </Box>
+                  </Card>
                 </Box>
                 <br></br>
                 <Box
@@ -106,7 +109,8 @@ const Profile = () => {
                     gap: '30px',
                   }}
                 >
-                  <Box
+                  <Card
+                    className="newsCard"
                     sx={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -120,8 +124,9 @@ const Profile = () => {
                   >
                     <Typography variant="h3">Number</Typography>
                     <p>Most Common Author</p>
-                  </Box>
-                  <Box
+                  </Card>
+                  <Card
+                    className="newsCard"
                     sx={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -135,7 +140,7 @@ const Profile = () => {
                   >
                     <Typography variant="h3">Number</Typography>
                     <p>Most Common Source</p>
-                  </Box>
+                  </Card>
                 </Box>
               </Card>
             </Box>

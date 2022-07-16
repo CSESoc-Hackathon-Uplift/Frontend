@@ -7,6 +7,7 @@ import stays from '../assets/stays.json'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { ThemeContext } from '@emotion/react'
+import './cardAnimation.css'
 
 const Home = (clickCount, setClickCount) => {
   const [location, setLocation] = useState<null | String>(null)
@@ -28,6 +29,7 @@ const Home = (clickCount, setClickCount) => {
           return (
             <Grid item xs={12} sm={12} lg={12}>
               <Card
+                className="newsCard"
                 sx={{
                   display: 'flex',
                   flexDirection: 'row',

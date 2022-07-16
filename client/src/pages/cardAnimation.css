@@ -1,0 +1,5 @@
+.newsCard:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 1px 1px 9px 4px rgba(28, 28, 28, 0.25), 
+      -1px -1px 9px 4px rgba(31, 30, 30, 0.22);
+  }
