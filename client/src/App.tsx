@@ -15,7 +15,6 @@ import { CssBaseline } from '@mui/material'
 const light = createTheme({
     palette: {
       mode: 'light',
-
       primary: {
         main: '#000',
       },
@@ -40,8 +39,10 @@ const light = createTheme({
   })
 
 const App = () => {
+  
   const theme = useContext(ThemeContext)
   const darkMode = theme.state.darkMode
+
   const [clickCount, setClickCount] = useState({})
 
   return (

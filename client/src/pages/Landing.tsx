@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Container, Typography } from '@mui/material'
 import { withStyles } from '@mui/styles'
 import landing_graphics from '../assets/landing_graphics.png'
