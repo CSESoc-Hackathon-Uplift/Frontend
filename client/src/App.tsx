@@ -39,7 +39,6 @@ const light = createTheme({
   })
 
 const App = () => {
-  
   const theme = useContext(ThemeContext)
   const darkMode = theme.state.darkMode
 
