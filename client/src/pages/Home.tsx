@@ -6,8 +6,9 @@ import { StarRounded } from '@mui/icons-material'
 import stays from '../assets/stays.json'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { ThemeContext } from '@emotion/react'
 
-const Home = () => {
+const Home = (clickCount, setClickCount) => {
   const [location, setLocation] = useState<null | String>(null)
   const [guests, setGuests] = useState<number>(0)
 
@@ -19,35 +20,71 @@ const Home = () => {
         <Grid item xs={12}>
           <Box display={'flex'} justifyContent={'space-between'} alignItems={'flex-end'}>
             <Typography variant="h5" component="h2" sx={{ fontWeight: 'bold' }}>
-              {'News on (topic)'}
+              Newsfeed
             </Typography>
           </Box>
         </Grid>
         {filteredStays.map((stay) => {
           return (
             <Grid item xs={12} sm={12} lg={12}>
-              <Card sx={{ border: 0, boxShadow: 0, background: 'unset', height: '100%' }}>
+              <Card
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  gap: '30px',
+                  borderRadius: '15px',
+                  padding: 3,
+                  boxShadow: 10,
+                  background: 'unset',
+                  height: '100%',
+                  justifyContents: 'center',
+                  alignItems: 'flex-start',
+                }}
+              >
                 <CardMedia>
-                  <LazyLoadImage src={stay.photo} alt={stay.title} width="100%" effect={'opacity'} style={{ borderRadius: '16px', aspectRatio: '394/267', objectFit: 'cover' }} />
+                  <LazyLoadImage src={stay.photo} alt={stay.title} height="450px" width="500x" effect={'opacity'} style={{ borderRadius: '15px', aspectRatio: '394/267', objectFit: 'cover' }} />
                 </CardMedia>
-                <CardContent sx={{ padding: 0, paddingTop: '0.5em' }}>
-                  <Box display={'flex'} justifyContent={'space-between'}>
-                    <Box>
-                      <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
-                        (news source)
-                      </Button>
-                    </Box>
-                    <Stack direction="row" alignItems="center" gap={0.5}>
-                      <StarRounded color="secondary" />
-                      <Typography variant="body2" component="span">
-                        {stay.rating}
-                      </Typography>
-                    </Stack>
-                  </Box>
-
-                  <Typography gutterBottom variant="h6" component="p">
-                    (news title)
+                <CardContent sx={{ padding: 0, display: 'flex', gap: '14px', flexDirection: 'column', alignItems: 'flex-start' }}>
+                  <Typography gutterBottom variant="h4" component="p" sx={{ fontWeight: 'bold' }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </Typography>
+                  <Box display={'flex'} flexDirection={'row'}>
+                    <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
+                      (news source)
+                    </Button>
+                    <Typography>(author's name)</Typography>
+                  </Box>
+                  <Stack direction="row" alignItems="center" gap={0.5}>
+                    <StarRounded color="secondary" />
+                    <Typography variant="body2" component="span">
+                      {stay.rating}
+                    </Typography>
+                  </Stack>
+                  <Typography>
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    size={'large'}
+                    href=""
+                    sx={{
+                      fontSize: '0.7em',
+                      height: '40px',
+                      marginTop: '10px',
+                      borderRadius: '35px',
+                      lineHeight: 1.3,
+                      textTransform: 'uppercase',
+                      fontWeight: 'bold',
+                      marginRight: '1em',
+                    }}
+                  >
+                    Read more
+                  </Button>
+                  <Box display={'flex'} flexDirection={'row'}>
+                    <Typography sx={{ fontWeight: 'bold', marginTop: '10px' }}>Categories:</Typography>
+                  </Box>
                 </CardContent>
               </Card>
             </Grid>

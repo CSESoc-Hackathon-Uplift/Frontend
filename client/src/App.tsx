@@ -42,6 +42,9 @@ const light = createTheme({
 const App = () => {
   const theme = useContext(ThemeContext)
   const darkMode = theme.state.darkMode
+  const [clickCount, setClickCount] = useState({
+    
+  })
 
   return (
     <ThemeProvider theme={darkMode ? dark : light}>
@@ -49,7 +52,7 @@ const App = () => {
       <Header />
       <Router>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home clickCount={clickCount} setClickCount={setClickCount} />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Landing />} />
         </Routes>
