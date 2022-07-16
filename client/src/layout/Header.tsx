@@ -54,7 +54,7 @@ const Header = () => {
             {darkMode ? <DarkMode /> : <LightMode />}
           </IconButton>
           <IconButton
-            href="/"
+            href="/profile"
             color="inherit"
             sx={{
               marginRight: '0.5em',
