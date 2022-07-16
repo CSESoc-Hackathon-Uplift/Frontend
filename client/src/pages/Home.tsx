@@ -3,9 +3,6 @@ import { useContext, useState } from 'react'
 import { ThemeContext } from '../features/ThemeContext'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
-import Header from '../layout/Header'
-import Footer from '../layout/Footer'
-
 import { Box, Button, Card, CardContent, CardMedia, Container, CssBaseline, Grid, Stack, Typography } from '@mui/material'
 import { StarRounded } from '@mui/icons-material'
 
@@ -58,9 +55,7 @@ const Home = () => {
   return (
     <ThemeProvider theme={darkMode ? dark : light}>
       <CssBaseline enableColorScheme />
-      <Header />
       {newsList}
-      <Footer />
     </ThemeProvider>
   )
 }
