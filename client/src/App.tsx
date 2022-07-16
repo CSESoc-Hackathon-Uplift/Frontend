@@ -105,7 +105,7 @@ const App = () => {
     <ThemeProvider theme={darkMode ? dark : light}>
       <CssBaseline enableColorScheme />
 
-      <Header locationChanger={setLocation} guestsChanger={setGuests} />
+      <Header />
       {staysList}
       <Footer />
     </ThemeProvider>
