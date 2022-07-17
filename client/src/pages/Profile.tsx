@@ -5,10 +5,14 @@ import cat1 from '../assets/download.jpg'
 import Table from '../components/Table'
 import { Button, Card, Box, Grid, CardMedia, Container, Paper, Typography } from '@mui/material'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import profile from '../assets/profile_pic.jpg'
 import ProgressBar from '../components/ProgressBar'
 import { flexbox } from '@mui/system'
 import './cardAnimation.css'
+import profile from '../assets/happy_woman.jpeg'
+import badge1 from '../assets/badge1.png'
+import badge2 from '../assets/badge2.png'
+import happy_face from '../assets/happy_face.png'
+import sad_face from '../assets/sad_face.png'
 
 const Profile = () => {
   let testData = { bgcolor: '#B38ccb', completed: 60 }
@@ -71,35 +75,47 @@ const Profile = () => {
               <CardMedia>
                 <LazyLoadImage src={profile} alt={'profile pic'} height="200px" width="200px" effect={'opacity'} style={{ borderRadius: '50%', aspectRatio: '394/267', objectFit: 'cover' }} />
               </CardMedia>
-              <Typography variant="h5">
-                <strong>Username</strong>
+              <Typography variant="h5" sx={{ paddingTop: '20px' }}>
+                <strong>Adrianne Jones</strong>
               </Typography>
+              <Container sx={{ display: 'flex', flexDirection: 'row', paddingTop: '20px' }}>
+                <LazyLoadImage src={badge1} width="70px" height="70px" />
+                <LazyLoadImage src={badge2} width="70px" height="70px" />
+              </Container>
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-              <Typography variant="h5">
-                <strong>Your Overall Sentiment Analysis:</strong>
-              </Typography>
-              <ProgressBar key={'something'} bgcolor={testData.bgcolor} completed={testData.completed} />
-              <Typography variant="h5">
-                <strong>Your Top Categories:</strong>
-              </Typography>
-              <Box>
-                <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
-                  (news source)
-                </Button>
-                <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
-                  (news source)
-                </Button>
-                <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
-                  (news source)
-                </Button>
-              </Box>
-              <Typography variant="h5">
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '30px', width: '100%' }}>
+              <Card sx={{ padding: '40px', borderRadius: '15px' }}>
+                <Typography variant="h6">
+                  <strong>Your Overall Sentiment Analysis:</strong>
+                </Typography>
+                <Container sx={{ display: 'flex', flexDirection: 'row' }}>
+                  <LazyLoadImage src={sad_face} width="25px" height="25px" />
+                  <ProgressBar key={'something'} bgcolor={testData.bgcolor} completed={testData.completed} />
+                  <LazyLoadImage src={happy_face} width="25px" height="25px" />
+                </Container>
+              </Card>
+              <Card sx={{ padding: '40px', borderRadius: '15px' }}>
+                <Typography variant="h6">
+                  <strong>Your Top Categories:</strong>
+                </Typography>
+                <Box sx={{ paddingTop: '15px' }}>
+                  <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
+                    Business & Finance
+                  </Button>
+                  <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
+                    Science
+                  </Button>
+                  <Button variant="outlined" size={'small'} sx={{ fontSize: '0.7em', borderRadius: '20px', lineHeight: 1.3, textTransform: 'uppercase', fontWeight: 'bold', marginRight: '1em' }}>
+                    Health & Medicine
+                  </Button>
+                </Box>
+              </Card>
+              <Typography variant="h6">
                 <strong>Your History:</strong>
               </Typography>
               {finishedLoading && <Table tables={table} />}
               {!finishedLoading && <img src="https://i.stack.imgur.com/ATB3o.gif" alt={'loading'} />}
-              <Typography variant="h5">
+              <Typography variant="h6">
                 <strong>Your Statistics:</strong>
               </Typography>
               {finishedStats && (
