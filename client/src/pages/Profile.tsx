@@ -132,7 +132,6 @@ const Profile = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     paddingTop: '0px',
-                    width: '200px',
                   }}
                 >
                   <Box sx={{ justifyContent: 'center', display: 'flex', flexDirection: 'row', gap: '30px' }}>
