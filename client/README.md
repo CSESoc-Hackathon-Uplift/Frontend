@@ -32,19 +32,16 @@
 - [Features](#features)
 - [How To Use](#how-to-use)
 
-
 ## Overview
 
 This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD) was to build an application to complete the given user stories.
 
-
 ## Built With
 
 - React
-- TypeScript 
+- TypeScript
 - [MUI](https://mui.com/)
 - ESLint & Prettier
-
 
 ## Features
 
