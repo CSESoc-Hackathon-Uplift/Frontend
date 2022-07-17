@@ -15,10 +15,33 @@ const Profile = () => {
 
   const [finishedLoading, setFinishedLoading] = useState(false)
   const [table, setTable] = useState([])
+  const [finishedStats, setFinishedStats] = useState(false)
+  const [stats, setStats] = useState({})
 
   useEffect(() => {
     getHistory()
+    getStats()
   }, [])
+
+  useEffect(() => {
+    console.log(stats)
+  }, [stats])
+
+  const getStats = () => {
+    let isMounted = true
+    setFinishedStats(false)
+    fetch('http://127.0.0.1:8080/stats?uuid=uuid1')
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted) {
+          setStats(data)
+          setFinishedStats(true)
+        }
+      })
+    return () => {
+      isMounted = false
+    }
+  }
 
   const getHistory = () => {
     let isMounted = true
@@ -79,94 +102,97 @@ const Profile = () => {
               <Typography variant="h5">
                 <strong>Your Statistics:</strong>
               </Typography>
-              <Card
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  border: '0px',
-                  boxShadow: 0,
-                  height: '450px',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  paddingTop: '0px',
-                }}
-              >
-                <Box sx={{ justifyContent: 'center', display: 'flex', flexDirection: 'row', gap: '30px' }}>
-                  <Card
-                    className="newsCard"
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      borderRadius: '15px',
-                      padding: 3,
-                      boxShadow: 3,
-                      background: 'unset',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Typography variant="h3">Number</Typography>
-                    <p>Average Score</p>
-                  </Card>
-                  <Card
-                    className="newsCard"
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      borderRadius: '15px',
-                      padding: 3,
-                      boxShadow: 3,
-                      background: 'unset',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Typography variant="h3">Number</Typography>
-                    <p>Bias Ratio</p>
-                  </Card>
-                </Box>
-                <br></br>
-                <Box
+              {finishedStats && (
+                <Card
                   sx={{
                     display: 'flex',
-                    flexDirection: 'row',
-                    gap: '30px',
+                    flexDirection: 'column',
+                    border: '0px',
+                    boxShadow: 0,
+                    height: '450px',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    paddingTop: '0px',
                   }}
                 >
-                  <Card
-                    className="newsCard"
+                  <Box sx={{ justifyContent: 'center', display: 'flex', flexDirection: 'row', gap: '30px' }}>
+                    <Card
+                      className="newsCard"
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        borderRadius: '15px',
+                        padding: 3,
+                        boxShadow: 3,
+                        background: 'unset',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Typography variant="h3">{stats['avg_score']}</Typography>
+                      <p>Average Score</p>
+                    </Card>
+                    <Card
+                      className="newsCard"
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        borderRadius: '15px',
+                        padding: 3,
+                        boxShadow: 3,
+                        background: 'unset',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Typography variant="h3">{stats['bias_ratio']}</Typography>
+                      <p>Bias Ratio</p>
+                    </Card>
+                  </Box>
+                  <br></br>
+                  <Box
                     sx={{
                       display: 'flex',
-                      flexDirection: 'column',
-                      borderRadius: '15px',
-                      padding: 3,
-                      boxShadow: 3,
-                      background: 'unset',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      flexDirection: 'row',
+                      gap: '30px',
                     }}
                   >
-                    <Typography variant="h3">Number</Typography>
-                    <p>Most Common Author</p>
-                  </Card>
-                  <Card
-                    className="newsCard"
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      borderRadius: '15px',
-                      padding: 3,
-                      boxShadow: 3,
-                      background: 'unset',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Typography variant="h3">Number</Typography>
-                    <p>Most Common Source</p>
-                  </Card>
-                </Box>
-              </Card>
+                    <Card
+                      className="newsCard"
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        borderRadius: '15px',
+                        padding: 3,
+                        boxShadow: 3,
+                        background: 'unset',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Typography variant="h5">{stats['most_common_author']}</Typography>
+                      <p>Most Common Author</p>
+                    </Card>
+                    <Card
+                      className="newsCard"
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        borderRadius: '15px',
+                        padding: 3,
+                        boxShadow: 3,
+                        background: 'unset',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Typography variant="h5">{stats['most_common_source']}</Typography>
+                      <p>Most Common Source</p>
+                    </Card>
+                  </Box>
+                </Card>
+              )}
+              {!finishedStats && <img width="100px" src="https://i.stack.imgur.com/ATB3o.gif" alt={'loading'} />}
             </Box>
           </Box>
         </Grid>
