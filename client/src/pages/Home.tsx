@@ -119,7 +119,7 @@ const Home = (clickCount, setClickCount) => {
                   <Stack direction="row" alignItems="center" gap={0.5}>
                     <StarRounded color="secondary" />
                     <Typography variant="body2" component="span">
-                      {post['rating']}
+                      {post['score']}
                     </Typography>
                   </Stack>
                   <Typography>{post['content']}</Typography>
