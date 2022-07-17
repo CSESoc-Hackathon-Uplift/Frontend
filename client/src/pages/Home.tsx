@@ -180,7 +180,7 @@ const Home = (clickCount, setClickCount) => {
         </Grid>
       </Grid>
       {!finishedLoading && <img src="https://i.stack.imgur.com/ATB3o.gif" alt={'loading'} />}
-      {finishedLoading && <h1>posts</h1>}
+      {finishedLoading && <p>Please enter a query.</p>}
       {finishedLoading && posts != [] && newsList}
     </Container>
   )

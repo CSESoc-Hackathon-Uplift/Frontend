@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import cat1 from '../assets/download.jpg'
 
@@ -12,6 +12,29 @@ import './cardAnimation.css'
 
 const Profile = () => {
   let testData = { bgcolor: '#B38ccb', completed: 60 }
+
+  const [finishedLoading, setFinishedLoading] = useState(false)
+  const [table, setTable] = useState([])
+
+  useEffect(() => {
+    getHistory()
+  }, [])
+
+  const getHistory = () => {
+    let isMounted = true
+    setFinishedLoading(false)
+    fetch('http://127.0.0.1:8080/history?uuid=uuid1')
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted) {
+          setTable(data.history)
+          setFinishedLoading(true)
+        }
+      })
+    return () => {
+      isMounted = false
+    }
+  }
 
   return (
     <Container>
@@ -51,7 +74,8 @@ const Profile = () => {
               <Typography variant="h5">
                 <strong>Your History:</strong>
               </Typography>
-              <Table />
+              {finishedLoading && <Table tables={table} />}
+              {!finishedLoading && <img src="https://i.stack.imgur.com/ATB3o.gif" alt={'loading'} />}
               <Typography variant="h5">
                 <strong>Your Statistics:</strong>
               </Typography>
