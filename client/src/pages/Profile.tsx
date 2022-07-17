@@ -15,7 +15,7 @@ import happy_face from '../assets/happy_face.png'
 import sad_face from '../assets/sad_face.png'
 
 const Profile = () => {
-  let testData = { bgcolor: '#B38ccb', completed: 60 }
+  let testData = { bgcolor: '#d17991', completed: 60 }
 
   const [finishedLoading, setFinishedLoading] = useState(false)
   const [table, setTable] = useState([])
@@ -88,11 +88,14 @@ const Profile = () => {
                 <Typography variant="h6">
                   <strong>Your Overall Sentiment Analysis:</strong>
                 </Typography>
-                <Container sx={{ display: 'flex', flexDirection: 'row' }}>
-                  <LazyLoadImage src={sad_face} width="25px" height="25px" />
-                  <ProgressBar key={'something'} bgcolor={testData.bgcolor} completed={testData.completed} />
-                  <LazyLoadImage src={happy_face} width="25px" height="25px" />
-                </Container>
+                {finishedStats && (
+                  <Container sx={{ display: 'flex', flexDirection: 'row', paddingTop: '20px' }}>
+                    <LazyLoadImage src={sad_face} width="25px" height="25px" />
+                    <ProgressBar key={'something'} bgcolor={testData.bgcolor} completed={stats['avg_score']} />
+                    <LazyLoadImage src={happy_face} width="25px" height="25px" />
+                  </Container>
+                )}
+                {!finishedStats && <img width="100px" src="https://i.stack.imgur.com/ATB3o.gif" alt={'loading'} />}
               </Card>
               <Card sx={{ padding: '40px', borderRadius: '15px' }}>
                 <Typography variant="h6">
