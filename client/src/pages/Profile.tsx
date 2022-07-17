@@ -132,6 +132,7 @@ const Profile = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     paddingTop: '0px',
+                    width: '200px',
                   }}
                 >
                   <Box sx={{ justifyContent: 'center', display: 'flex', flexDirection: 'row', gap: '30px' }}>
@@ -162,6 +163,7 @@ const Profile = () => {
                         background: 'unset',
                         justifyContent: 'center',
                         alignItems: 'center',
+                        width: '200px',
                       }}
                     >
                       <Typography variant="h3">{stats['bias_ratio']}</Typography>
@@ -187,6 +189,7 @@ const Profile = () => {
                         background: 'unset',
                         justifyContent: 'center',
                         alignItems: 'center',
+                        width: '200px',
                       }}
                     >
                       <Typography variant="h5">{stats['most_common_author']}</Typography>
@@ -203,6 +206,7 @@ const Profile = () => {
                         background: 'unset',
                         justifyContent: 'center',
                         alignItems: 'center',
+                        width: '200px',
                       }}
                     >
                       <Typography variant="h5">{stats['most_common_source']}</Typography>
