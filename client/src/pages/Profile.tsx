@@ -114,7 +114,7 @@ const Profile = () => {
                 <strong>Your History:</strong>
               </Typography>
               {finishedLoading && <Table tables={table} />}
-              {!finishedLoading && <img src="https://i.stack.imgur.com/ATB3o.gif" alt={'loading'} />}
+              {!finishedLoading && <img width="100px" src="https://i.stack.imgur.com/ATB3o.gif" alt={'loading'} />}
               <Typography variant="h6">
                 <strong>Your Statistics:</strong>
               </Typography>
